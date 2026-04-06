@@ -1,10 +1,13 @@
 import React from 'react';
 import { CiStar } from 'react-icons/ci';
+import { Link } from 'react-router';
+
+
 
 
 const BookCard = ({book}) => {
     return (
-        < div className="card  w-86 shadow-sm">
+        < Link to={`/bookDetails/${book.bookId}`} className="card  w-86 shadow-sm">
                         <figure className='bg-base-200 p-2'>
                             <img className='h-40 w-35 p-4'
                                 src={book.image}
@@ -28,7 +31,7 @@ const BookCard = ({book}) => {
                                 <div className=" font-semibold mt-4 flex items-center gap-1">{book.rating} <CiStar /></div>
                             </div>
                         </div>
-                    </div>
+                    </Link>
     );
 };
 
