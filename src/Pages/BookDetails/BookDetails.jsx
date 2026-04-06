@@ -1,5 +1,6 @@
-import React, { use } from 'react';
+import React, {useContext, useState } from 'react';
 import { useLoaderData, useParams } from 'react-router';
+import { BookContext } from '../../Context/BookProvider';
 
 
 const BookDetails = () => {
@@ -8,12 +9,18 @@ const BookDetails = () => {
     // console.log(bookId , 'bookId')
 
     const books = useLoaderData()
-    console.log(books, 'books')
+    // console.log(books, 'books')
 
     const expectedBook = books.find(book => book.bookId == booksParamsId);
     console.log(expectedBook, 'expected Books');
 
     const { image, bookName, author, category, tags, review, totalPages, rating, publisher, yearOfPublishing } = expectedBook;
+
+    const {handleMarkAsRead, storedBooks} = useContext(BookContext) ;
+
+    console.log(handleMarkAsRead, storedBooks , 'this is handle mark as read and storedbooks');
+
+ 
 
 
     return (
@@ -33,7 +40,7 @@ const BookDetails = () => {
                 <div className='flex items-center gap-2'>
                     {
                         tags.map((tag, index) => {
-                            return <div key={index} className="badge badge-outline badge-accent">{tag}</div>
+                            return <div key={index} className="badge badge-outline badge-accent cursor-pointer">{tag}</div>
                         })
                     }
                 </div>
@@ -51,8 +58,8 @@ const BookDetails = () => {
                     </div>
                     <div className='flex items-center gap-2 mt-4'>
 
-                              <button className="btn btn-accent">Read</button>
-                              <button className="btn btn-info">Wishlist</button>
+                              <button onClick={() => handleMarkAsRead(expectedBook)} className="btn">Mark as Read</button>
+                              <button className="btn btn-info text-white">Add to Wishlist</button>
 
 
 

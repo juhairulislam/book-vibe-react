@@ -7,9 +7,9 @@ import { Link } from 'react-router';
 
 const BookCard = ({book}) => {
     return (
-        < Link to={`/bookDetails/${book.bookId}`} className="card  w-86 shadow-sm">
+        < Link to={`/bookDetails/${book.bookId}`} className="card  w-86 shadow-sm my-6">
                         <figure className='bg-base-200 p-2'>
-                            <img className='h-40 w-35 p-4'
+                            <img className='h-45 w-35 p-4'
                                 src={book.image}
                                 alt={book.bookName} />
                         </figure>

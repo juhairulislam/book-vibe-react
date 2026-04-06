@@ -4,6 +4,7 @@ import './index.css'
 
 import { RouterProvider, } from "react-router/dom";
 import { router } from './routes/Router';
+import BookProvider from './Context/BookProvider';
 
 
 
@@ -11,5 +12,11 @@ import { router } from './routes/Router';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-<RouterProvider router={router} />  </StrictMode>,
+    <BookProvider>
+
+<RouterProvider router={router} />  
+      
+    </BookProvider>
+
+</StrictMode>,
 )
