@@ -5,6 +5,7 @@ import './index.css'
 import { RouterProvider, } from "react-router/dom";
 import { router } from './routes/Router';
 import BookProvider from './Context/BookProvider';
+import { ToastContainer } from 'react-toastify';
 
 
 
@@ -15,6 +16,7 @@ createRoot(document.getElementById('root')).render(
     <BookProvider>
 
 <RouterProvider router={router} />  
+<ToastContainer />
       
     </BookProvider>
 

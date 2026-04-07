@@ -3,12 +3,16 @@ import { BookContext } from '../../Context/BookProvider';
 
 const Books = () => {
 
-        const {storedBooks} = useContext(BookContext) ;
+        const {storedBooks, wishList} = useContext(BookContext) ;
 
-    console.log(storedBooks , 'this is handle mark as read and storedbooks');
+    // console.log(storedBooks , 'this is handle mark as read and storedbooks');
     return (
-        <div>
-            This is books section
+        <div className='container mx-auto'>
+
+            Read List : {storedBooks.length} ;
+            <br />
+            Wish List : {wishList.length}
+           
         </div>
     );
 };
